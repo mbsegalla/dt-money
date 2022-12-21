@@ -1,10 +1,15 @@
+import { useContext, useEffect, useReducer, useState } from "react"
 import Header from "../../components/Header"
 import Summary from "../../components/Summary"
+import { TransactionsContext } from "../../contexts/TransactionsContext"
+import { dateFormatter, priceFormatter } from "../../utils/formatter"
 import SearchForm from "./components/SearchForm"
 
 import { TransactionContainer, Table, PriceHighlight } from "./styles"
 
 const Transactions = () => {
+  const { transactions } = useContext(TransactionsContext)
+
   return (
     <div>
       <Header />
@@ -14,22 +19,19 @@ const Transactions = () => {
         <SearchForm />
         <Table>
           <tbody>
-            <tr>
-              <td width="50%">Desenvolvimento do site</td>
-              <td>
-                <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
-              </td>
-              <td>Venda</td>
-              <td>21/12/2022</td>
-            </tr>
-            <tr>
-              <td width="50%">hamburguer</td>
-              <td>
-                <PriceHighlight variant="outcome">-R$ 2.000,00</PriceHighlight>
-              </td>
-              <td>Alimentação</td>
-              <td>21/12/2022</td>
-            </tr>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id}>
+                <td width="50%">{transaction.description}</td>
+                <td>
+                  <PriceHighlight variant={transaction.type}>
+                    {transaction.type === "outcome" && "- "}
+                    {priceFormatter.format(transaction.price)}
+                  </PriceHighlight>
+                </td>
+                <td>{transaction.category}</td>
+                <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </TransactionContainer>
