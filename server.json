@@ -15,6 +15,54 @@
       "category": "food",
       "price": 10,
       "createdAt": "2022-12-21T00:00:00.000Z"
+    },
+    {
+      "category": "Educação",
+      "description": "Curso",
+      "price": 120,
+      "type": "outcome",
+      "createdAt": "2022-12-21T19:29:22.683Z",
+      "id": "pM4vDX8"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Carne",
+      "price": 120,
+      "type": "outcome",
+      "createdAt": "2022-12-21T19:29:26.992Z",
+      "id": "ikEJIPT"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Carne",
+      "price": 120,
+      "type": "outcome",
+      "createdAt": "2022-12-21T19:29:42.405Z",
+      "id": "DJDed36"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Carne",
+      "price": 120,
+      "type": "income",
+      "createdAt": "2022-12-21T19:29:44.022Z",
+      "id": "TE6Wo2w"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Carne",
+      "price": 2500,
+      "type": "income",
+      "createdAt": "2022-12-21T20:00:06.442Z",
+      "id": "hfWUrMR"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Pastel",
+      "price": 10,
+      "type": "outcome",
+      "createdAt": "2022-12-21T20:00:37.374Z",
+      "id": "JJc2ASo"
     }
   ]
 }
