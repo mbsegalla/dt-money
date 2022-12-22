@@ -1,11 +1,11 @@
-import { useContext, useEffect, useReducer, useState } from "react"
-import Header from "../../components/Header"
-import Summary from "../../components/Summary"
-import { TransactionsContext } from "../../contexts/TransactionsContext"
-import { dateFormatter, priceFormatter } from "../../utils/formatter"
-import SearchForm from "./components/SearchForm"
+import { useContext } from 'react'
+import Header from '../../components/Header'
+import Summary from '../../components/Summary'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
+import SearchForm from './components/SearchForm'
 
-import { TransactionContainer, Table, PriceHighlight } from "./styles"
+import { TransactionContainer, Table, PriceHighlight } from './styles'
 
 const Transactions = () => {
   const { transactions } = useContext(TransactionsContext)
@@ -24,7 +24,7 @@ const Transactions = () => {
                 <td width="50%">{transaction.description}</td>
                 <td>
                   <PriceHighlight variant={transaction.type}>
-                    {transaction.type === "outcome" && "- "}
+                    {transaction.type === 'outcome' && '- '}
                     {priceFormatter.format(transaction.price)}
                   </PriceHighlight>
                 </td>

@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { api } from "../services/api";
+import React, { createContext, useEffect, useState } from 'react'
+import { api } from '../services/api'
 
 interface Transaction {
   id: number
@@ -29,7 +29,9 @@ interface TransactionsProviderProps {
 
 export const TransactionsContext = createContext({} as TransactionsContextData)
 
-export const TransactionsProvider = ({ children }: TransactionsProviderProps) => {
+export const TransactionsProvider = ({
+  children,
+}: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   const loadTransactions = async (query?: string) => {
@@ -37,15 +39,15 @@ export const TransactionsProvider = ({ children }: TransactionsProviderProps) =>
       params: {
         _sort: 'createdAt',
         _order: 'desc',
-        q: query
-      }
+        q: query,
+      },
     })
     setTransactions(response.data)
   }
 
   const createTransaction = async (data: CreateTransactionProps) => {
     const { category, description, price, type } = data
-    const response = await api.post("/transactions", {
+    const response = await api.post('/transactions', {
       category,
       description,
       price,
@@ -65,8 +67,9 @@ export const TransactionsProvider = ({ children }: TransactionsProviderProps) =>
       value={{
         transactions,
         loadTransactions,
-        createTransaction
-      }}>
+        createTransaction,
+      }}
+    >
       {children}
     </TransactionsContext.Provider>
   )
