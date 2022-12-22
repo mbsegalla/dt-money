@@ -31,14 +31,13 @@ export const TransactionsContext = createContext({} as TransactionsContextData)
 
 export const TransactionsProvider = ({ children }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([])
-  console.log(transactions)
 
   const loadTransactions = async (query?: string) => {
     const response = await api.get('/transactions', {
       params: {
         _sort: 'createdAt',
         _order: 'desc',
-        query
+        q: query
       }
     })
     setTransactions(response.data)
