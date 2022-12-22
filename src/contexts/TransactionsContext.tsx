@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState, useCallback } from 'react'
 import { api } from '../services/api'
 
 interface Transaction {
@@ -34,7 +34,7 @@ export const TransactionsProvider = ({
 }: TransactionsProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
-  const loadTransactions = async (query?: string) => {
+  const loadTransactions = useCallback(async (query?: string) => {
     const response = await api.get('/transactions', {
       params: {
         _sort: 'createdAt',
@@ -43,24 +43,27 @@ export const TransactionsProvider = ({
       },
     })
     setTransactions(response.data)
-  }
+  }, [])
 
-  const createTransaction = async (data: CreateTransactionProps) => {
-    const { category, description, price, type } = data
-    const response = await api.post('/transactions', {
-      category,
-      description,
-      price,
-      type,
-      createdAt: new Date(),
-    })
+  const createTransaction = useCallback(
+    async (data: CreateTransactionProps) => {
+      const { category, description, price, type } = data
+      const response = await api.post('/transactions', {
+        category,
+        description,
+        price,
+        type,
+        createdAt: new Date(),
+      })
 
-    setTransactions([response.data, ...transactions])
-  }
+      setTransactions([response.data, ...transactions])
+    },
+    [transactions],
+  )
 
   useEffect(() => {
     loadTransactions()
-  }, [])
+  }, [loadTransactions])
 
   return (
     <TransactionsContext.Provider
