@@ -15,7 +15,7 @@ This project was created to help control expenses, registering and having access
 ```
 ## Pictures
 
-This image represents where information on registered expenses is shown.
+Image representing the information of registered entries or exits.
 
 ![web1](https://user-images.githubusercontent.com/69018143/210570899-1ed959ac-bec7-440f-b69b-2c1146538766.png)
 
