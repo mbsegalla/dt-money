@@ -9,7 +9,9 @@ This project was created to help control expenses, registering and having access
 ```bash
   git clone https://github.com/mbsegalla/dt-money.git
   cd my project
-  npm/yarn run dev
+  npm run dev
+  #or
+  yarn run dev
   
   for start server use comand: npm run dev:server
 ```
