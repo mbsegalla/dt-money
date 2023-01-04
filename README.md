@@ -11,5 +11,5 @@ This project was created to help control expenses, registering and having access
   cd my project
   npm/yarn run dev
   
-  // for start server use comand: npm run dev:server
+  for start server use comand: npm run dev:server
 ```
