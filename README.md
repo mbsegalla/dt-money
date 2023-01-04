@@ -13,3 +13,9 @@ This project was created to help control expenses, registering and having access
   
   for start server use comand: npm run dev:server
 ```
+## Pictures
+
+![web1](https://user-images.githubusercontent.com/69018143/210570899-1ed959ac-bec7-440f-b69b-2c1146538766.png)
+
+![web2](https://user-images.githubusercontent.com/69018143/210571034-11332e9c-c5cb-42b3-a94f-88b3e9df79f6.png)
+
